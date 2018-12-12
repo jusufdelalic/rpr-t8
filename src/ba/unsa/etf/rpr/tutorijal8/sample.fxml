@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" prefHeight="335.0" prefWidth="538.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.tutorijal8.Controller">
+    <columnConstraints>
+        <ColumnConstraints maxWidth="195.0" minWidth="55.0" prefWidth="55.0" />
+        <ColumnConstraints maxWidth="245.0" minWidth="10.0" prefWidth="171.0" />
+        <ColumnConstraints maxWidth="293.0" minWidth="10.0" prefWidth="174.0" />
+        <ColumnConstraints maxWidth="293.0" minWidth="10.0" prefWidth="174.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <ListView fx:id="listaPutanja" prefHeight="295.0" prefWidth="598.0" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+        <Label text="Uzorak:" />
+        <TextField fx:id="pretraga" GridPane.columnIndex="1" />
+        <Button fx:id="trazi" mnemonicParsing="false" onAction="#traziClick" prefHeight="25.0" prefWidth="118.0" text="Traži" GridPane.columnIndex="2" />
+        <Button fx:id="prekid" mnemonicParsing="false" onAction="#prekiniClick" prefHeight="25.0" prefWidth="123.0" text="Prekini" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+</GridPane>
