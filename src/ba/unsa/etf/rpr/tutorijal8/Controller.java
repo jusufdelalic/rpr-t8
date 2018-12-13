@@ -36,12 +36,25 @@ public class Controller {
                 prekid.setDisable(false);
         });
 
-        /*
+        listaPutanja.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
-        ...
-
-
-         */
+            //changed - da li se vrijednost ObservableValue promijenila
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("slanje.fxml"));
+                } catch (IOException ignore) {
+                    return;
+                }
+                Stage pomocniProzor = new Stage();
+                pomocniProzor.setTitle("Unos podataka");
+                pomocniProzor.resizableProperty().setValue(false); // nemogućnost mijenjanja velicine prozora
+                pomocniProzor.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+                pomocniProzor.initModality(Modality.APPLICATION_MODAL);
+                pomocniProzor.show();
+            }
+        });
     }
 
 
@@ -64,7 +77,7 @@ public class Controller {
         }
 
         public void pretrazi(File korijen, File trenutni) {
-            if (!trazi.isDisabled()) // ako dugme za pretragu omogućeno...
+            if (!trazi.isDisabled()) // ako je dugme za pretragu omogućeno...
                 Thread.currentThread().stop(); // gotova je pretraga...
             if (trenutni.isDirectory()) { // "trenutni" je direktorij
                 File[] listFiles = trenutni.listFiles(); // lista datoteka u tom folderu "trenutni"
@@ -90,8 +103,8 @@ public class Controller {
 
     public void traziClick(ActionEvent actionEvent) {
         trazi.setDisable(true);
-        // Returns the currently installed selection model.
 
+        // Returns the currently installed selection model.
         // prilikom nove pretrage brise se stara...
         listaPutanja.getSelectionModel().clearSelection();
         listaPutanja.getItems().clear();
